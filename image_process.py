@@ -11,7 +11,7 @@ test_path_A = os.getcwd() + '/guitars_cellos/test/guitars/'
 test_path_B = os.getcwd() + '/guitars_cellos/test/cellos/'
 test_path_resized = os.getcwd() + '/guitars_cellos/test/resized/'
 
-
+# Get images from local directories, resize and prepare the labels
 def get_data(path_A, path_B, path_resized):
     image_path_list = []
     label = []
@@ -42,6 +42,7 @@ def get_data(path_A, path_B, path_resized):
     return all_data
 
 
+# Transfer images into np arrays
 def process_data(data):
     img_matrix = []
     for i in data:
@@ -55,6 +56,7 @@ def process_data(data):
     return img_matrix
 
 
+# Transfer images into training ready arrays
 def prepare_data():
     train_list = get_data(train_path_A, train_path_B, train_path_resized)
     test_list = get_data(test_path_A, test_path_B, test_path_resized)

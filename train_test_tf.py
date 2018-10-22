@@ -11,11 +11,9 @@ max_steps = 2000
 
 data_sets = image_process.prepare_data()
 
-# Define input placeholders
+# Define input placeholders and variables
 images_placeholder = tf.placeholder(tf.float32, shape=[None, img_w*img_h*3])
 labels_placeholder = tf.placeholder(tf.int64, shape=[None])
-
-# Define variables (these are the values we want to optimize)
 weights = tf.Variable(tf.zeros([img_w*img_h*3, 2]))
 biases = tf.Variable(tf.zeros([2]))
 
@@ -35,16 +33,14 @@ correct_prediction = tf.equal(tf.argmax(logits, 1), labels_placeholder)
 accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
 
 with tf.Session() as sess:
-    # Initialize variables
     sess.run(tf.initialize_all_variables())
-    # Repeat max_steps times
     for i in range(max_steps):
         # Generate input data batch
         indices = np.random.choice(data_sets['images_train'].shape[0], batch_size)
         images_batch = data_sets['images_train'][indices]
         labels_batch = data_sets['labels_train'][indices]
 
-        # Periodically print out the model's current accuracy
+        # Print out the model's current accuracy every 100 steps
         if i % 100 == 0:
             train_accuracy = sess.run(accuracy, feed_dict={
                 images_placeholder: images_batch, labels_placeholder: labels_batch})
@@ -52,8 +48,6 @@ with tf.Session() as sess:
 
         # Perform a single training step
         sess.run(train_step, feed_dict={images_placeholder: images_batch, labels_placeholder: labels_batch})
-
-    # After finishing the training, evaluate on the test set
 
     test_accuracy = sess.run(accuracy, feed_dict={
         images_placeholder: data_sets['images_test'],
