@@ -13,7 +13,7 @@ Then please run train_test_tf.py to start the training and testing. It will call
 
 The testing result I got was around 75%.
 
-Here are some references which I used:
-https://www.wolfib.com/Image-Recognition-Intro-Part-1/
-https://github.com/xuetsing/cats-vs-dogs
+Here are some references which I used:  
+https://www.wolfib.com/Image-Recognition-Intro-Part-1/  
+https://github.com/xuetsing/cats-vs-dogs  
 https://pythonprogramming.net/haar-cascade-object-detection-python-opencv-tutorial/
