@@ -53,8 +53,8 @@ def main():
     path_B = 'object_B'
     store_raw_images(images_link_A, path_A)
     store_raw_images(images_link_B, path_B)
-    find_uglies(path_A)
-    find_uglies(path_B)
+    #find_uglies(path_A)
+    #find_uglies(path_B)
 
 
 if __name__ == '__main__':
