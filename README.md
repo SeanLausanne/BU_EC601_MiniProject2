@@ -1,7 +1,7 @@
 # BU_EC601_MiniProject2
 
 This the mini project 2 for BU course EC601  
-I built a simple machine learning algorithm with TensorFlow to distinguish images of 2 projects: guitars and cellos  
+I built a simple machine learning algorithm with TensorFlow to distinguish images of 2 objects: guitars and cellos  
 
 The code was written in Python 3. Before running, please make sure that you have installed the following libraries: numpy, cv2, urllib, tensorflow
 
